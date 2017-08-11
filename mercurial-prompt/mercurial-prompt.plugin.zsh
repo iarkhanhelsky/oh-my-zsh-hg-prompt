@@ -1,6 +1,16 @@
 # Updates hg root
 function update_hg_root() {
-    HG_ROOT=$(hg root 2> /dev/null)
+  local path=$(pwd)
+  while [[ $path != "/" && ( ! -d "$path/.hg" ) ]]; do
+    local v="$path/.."
+    path=$v:A    
+  done	  
+
+  if [[ $path != "/" ]]; then
+    HG_ROOT=$path 
+  else
+    HG_ROOT="" # hg repository not found 
+  fi
 }
 
 # Will update hg root every time user changes dir.
@@ -8,7 +18,11 @@ function update_hg_root() {
 # cases:
 # - user runs hg init in current directory
 # - user deletes .hg in current directory.
-chpwd_functions=(${chpwd_functions[@]} "update_hg_root")
+
+# Only one function
+if  [[ ${chpwd_functions[(r)update_hg_root]} != update_hg_root ]]; then
+  chpwd_functions=(${chpwd_functions[@]} "update_hg_root")
+fi
 
 function hg_branch() {
     if [[ -n $HG_ROOT ]]; then
