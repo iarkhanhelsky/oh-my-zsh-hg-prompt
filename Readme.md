@@ -4,7 +4,7 @@ Super simple and fast implementation of `hg_prompt_info` for Oh My Zsh
 
 Does only one thing (for now) and does it pretty good: prints current mercurial branch name without lags.
 
-> Current oh-my-zsh plugin is slow and all alternative PR stuck for years waiting for review. 
+> Current oh-my-zsh plugin is slow and all alternative PRs ([1][iozsh4399], [2][iozsh4591]) stuck for years waiting for review. 
 
 ## Instalation
 
@@ -35,3 +35,7 @@ You can change following variables to update prompt appearence:
 * `ZSH_THEME_HG_PROMPT_BRANCH_COLOR` default value `"%{$fg_bold[magenta]%}"`
 
 Most of them follows [original mercurial plugin](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/mercurial/mercurial.plugin.zsh) names. 
+
+
+[iozsh4399]: https://github.com/robbyrussell/oh-my-zsh/issues/4399
+[iozsh4591]: https://github.com/robbyrussell/oh-my-zsh/issues/4591
