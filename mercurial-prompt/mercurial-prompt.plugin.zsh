@@ -49,7 +49,7 @@ fi
 function hg_branch() {
     if [[ -n $HG_ROOT ]]; then
         local branch=$(cat "$HG_ROOT/.hg/branch" 2> /dev/null)
-        if [[ -n $HG_ROOT ]]; then
+        if [[ -n $branch ]]; then
           echo $branch
         else
           # After creation of empty repository branch technicaly
