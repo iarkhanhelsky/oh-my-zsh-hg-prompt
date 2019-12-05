@@ -36,7 +36,7 @@ You can change following variables to update prompt appearence:
 
 Most of them follows [original mercurial plugin](https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/mercurial/mercurial.plugin.zsh) names.
 
-You can set `$ZSH_THEME_HG_PROMPT_USE_BOOKMARK="true"` to use the current
+You can set `ZSH_THEME_HG_PROMPT_USE_BOOKMARK="true"` to use the current
 [bookmark](https://www.mercurial-scm.org/wiki/Bookmarks) name instead of branch name.
 
 [iozsh4399]: https://github.com/robbyrussell/oh-my-zsh/issues/4399
