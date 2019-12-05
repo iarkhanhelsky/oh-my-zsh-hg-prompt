@@ -28,7 +28,7 @@ Does only one thing (for now) and does it pretty good: prints current mercurial 
 
 You can change following variables to update prompt appearence:
 
-* `$ZSH_PROMPT_BASE_COLOR` default value `"%{${fg_bold[blue]}%}"`
+* `ZSH_PROMPT_BASE_COLOR` default value `"%{${fg_bold[blue]}%}"`
 * `ZSH_THEME_HG_PROMPT_TAG` default value `"hg"`
 * `ZSH_THEME_HG_PROMPT_PREFIX` default value `":"`
 * `ZSH_THEME_HG_PROMPT_SUFFIX` default value `""`
