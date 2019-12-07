@@ -3,13 +3,13 @@ function update_hg_root() {
   local path=$(pwd)
   while [[ $path != "/" && ( ! -d "$path/.hg" ) ]]; do
     local v="$path/.."
-    path=$v:A    
-  done	  
+    path=$v:A
+  done
 
   if [[ $path != "/" ]]; then
-    HG_ROOT=$path 
+    HG_ROOT=$path
   else
-    HG_ROOT="" # hg repository not found 
+    HG_ROOT="" # hg repository not found
   fi
 }
 
@@ -29,7 +29,7 @@ function precmd_update_hg_root() {
 }
 
 # Will update hg root every time user changes dir.
-# This approach fast but doesn't work with some corner 
+# This approach fast but doesn't work with some corner
 # cases:
 # - user deletes .hg  directory.
 
@@ -48,16 +48,20 @@ fi
 
 function hg_branch() {
     if [[ -n $HG_ROOT ]]; then
-        local branch=$(cat "$HG_ROOT/.hg/branch" 2> /dev/null)
+        local current_file="$HG_ROOT/.hg/branch"
+        if [[ "$ZSH_THEME_HG_PROMPT_USE_BOOKMARK" == "true" ]]; then
+          current_file="$HG_ROOT/.hg/bookmarks.current"
+        fi
+        local branch=$(cat "$current_file" 2> /dev/null)
         if [[ -n $branch ]]; then
           echo $branch
         else
           # After creation of empty repository branch technicaly
           # is `default`. But .hg/branch is not created until
           # hg up -C will be run.
-          echo "default" 
+          echo "default"
         fi
-    fi 
+    fi
 }
 
 function hg_prompt_info() {
